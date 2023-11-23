@@ -1,11 +1,19 @@
 class Solution {
     public boolean isUgly(int n) {
-        if(n==0) return false;
-        for(int i=2;i<=5;i+=i-1){
-            while(n%i==0){
-                n=n/i;
-            }
+        if (n <= 0) {
+            return false; // Ugly numbers are positive integers
         }
-        return n==1;
+        
+        while (n % 2 == 0) {
+            n /= 2; // Divide by 2 while n is divisible by 2
+        }
+        while (n % 3 == 0) {
+            n /= 3; // Divide by 3 while n is divisible by 3
+        }
+        while (n % 5 == 0) {
+            n /= 5; // Divide by 5 while n is divisible by 5
+        }
+        
+        return n == 1; // If n becomes 1, it's an ugly number
     }
 }
