@@ -11,16 +11,11 @@ class Solution {
    public boolean isArithmetic(int [] nums, int l, int r){
         int max = Integer.MIN_VALUE;
         int min = Integer.MAX_VALUE;
-
         for (int i = l; i <= r; i++) {
-            max = Math.max(nums[i],max);        // max of nums
-            min = Math.min(nums[i],min);        // min of nums
+            max = Math.max(nums[i],max);   
+            min = Math.min(nums[i],min);        
         }
-
         int len = r -l +1;
-        // if (max-min)/(length-1) yields remainder = 0 => AP
-        // else                                         => Not an AP
-
         if((max-min)%(len-1) !=0)               
             return false;
 
@@ -32,13 +27,13 @@ class Solution {
 
         for (int i = l; i <= r; i++) {
         int val = nums[i];
-            if((val - min)% diff != 0)          // checking remainder wrt min
+            if((val - min)% diff != 0)          
                 return false;
             else {
                 int pos = (val - min) / diff;
-                if(visited[pos])                // If node is visited, then it means repeatition of numbers 
+                if(visited[pos])              
                     return false;
-                visited[pos] = true;            // If node isn't visited yet, marked it visited
+                visited[pos] = true;        
             }
         }
         return true;
