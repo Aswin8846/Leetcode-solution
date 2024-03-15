@@ -15,7 +15,7 @@ class Solution {
                 longest = Math.max(longest, count);
                 
            }
-           if(longest > nums.length/2) break;
+           
 
        }
        return longest;
